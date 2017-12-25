@@ -1,2 +1,2 @@
 # tttrl
-Uber-simple reinforcement demo with tick-tack-toe
+Uber-simple reinforcement learning demo with tick-tack-toe
