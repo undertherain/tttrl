@@ -108,7 +108,7 @@ def main():
     progress["win0"] = []
     progress["loss"] = []
 
-    for epoch in range(100):
+    for epoch in range(600):
         loss = train(players, optimizer)
         if loss is not None:
             policy.cleargrads()
