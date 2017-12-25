@@ -7,13 +7,17 @@ from field import Field
 from tournament import eval_players
 from agent_random import AgentRandom
 import os
-import sys
-sys.path.append("../../../dl_utils")
+import json
 
-from dl_utils.frameworks.chainer.snapshot_best import snapshot_best
-from dl_utils.misc import get_time_str, save_code, save_data_json
 
 path_results = "results"
+
+
+def save_data_json(data, name_file):
+    s = json.dumps(data, ensure_ascii=False, indent=4, sort_keys=True)
+    f = open(name_file, 'w')
+    print(s, file=f)
+    f.close()
 
 
 class Policy(chainer.Chain):
@@ -104,7 +108,7 @@ def main():
     progress["win0"] = []
     progress["loss"] = []
 
-    for epoch in range(10):
+    for epoch in range(100):
         loss = train(players, optimizer)
         if loss is not None:
             policy.cleargrads()
